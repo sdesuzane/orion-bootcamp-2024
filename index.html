@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercícios Orion Bootcamp 2024</title>
-    <style>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Exercícios Orion Bootcamp 2024</title>
+      <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f4f4f4;
+            background: linear-gradient(90deg, rgba(80,35,128,1) 35%, rgba(197,81,132,1) 100%);
             color: #333;
         }
-        h1, h2, h3 {
-            color: #2c3e50;
+        h1 {
+          text-align: center;
+          color: #e4b3a7;
+        }
+        h2, h3 {
+            color: #de7f8f;
+        }
+        p, label {
+          color: #9e6ea1;
         }
         .output {
             color: rgb(190, 62, 62);
         }
-        div {
+        .imperative {
+            background-color: #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .functional {
+            background-color: #ddd;
+            padding: 10px;
+        }
+        section {
             margin-bottom: 30px;
             padding: 20px;
-            background: white;
+            background: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -28,247 +44,451 @@
             display: block;
             margin: 10px 0 5px;
         }
-        input[type="text"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        input {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
+        }
+        input[type="number"] {
+          width: 15%;
         }
         button {
             margin-top: 10px;
             padding: 10px 15px;
-            background-color: #3453db;
-            color: white;
+            background-color: #9e6ea1;
+            color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #2aa1a1;
-            color: black;
+            background-color: #de7f8f;
+            color: #000;
             transition: 1s;
         }
-        .code-box {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            font-family: 'Courier New', Courier, monospace;
-            margin: 10px 0;
-        }
     </style>
-</head>
-<body>
-    <div>
-        <h1>Exercício 1</h1>
-        <p>
+   </head>
+   <body>
+        <h1>Exercícios de Nivelamento - Orion Bootcamp 2024</h1>
+
+        <section>
+            <h2>Exercício 1</h2>
             <span>Criar uma função que retorne a quantidade de vogais da palavra passada</span>
-        </p>
-        <h2>Resposta</h2>
-        <h2>Contador de vogais</h2>
-        <form id="form" action="">
-        <label for="word">Insira uma palavra:</label>
-        <input type="text" name="word" id="word">
-        <button onclick="countVowels()">Executar</button>
-    </form>
-    <p id="result"></p>
-</div>
-<div>
-    <h1>Exercício 2</h1>
-    <h2>Trabalhando com Arrays e Objetos</h2>
-    <span>Dado o array:</span>
-    <div class="code-box">
-            <p>
-                let lista = [
-                {"id" : 1, "name": "Ada Lovelace", "bio" : "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
-                {"id" : 2, "name": "Alan Turing", "bio" : "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificial"},
-                {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
-                {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
-            ];
-            </p>
-    </div>
-    <ul>
-        <li>a) Crie uma função que retorne a bio do id passado</li>
-        <li>b) Crie uma função que retorne o name do id passado</li>
-        <li>c) Crie uma função que apague um item da lista a partir de um id passado</li>
-        <li>d) Crie uma função que altere a bio ou o name a partir de um id passado</li>
-        <li>e) Demonstre todas as funções com o paradigma funcional e com o imperativo</li>
-    </ul>
-    <h2>Respostas</h2>
-    <h2 class="output">Abra o console para ver o output das funções abaixo</h2>
-        <h3>Função que retorna bio do ID passado - Imperativo</h3>
-        <div class="code-box">
-            function userBio(id: number): string | undefined {
-                for (let i = 0; i < list.length; i++) {
-                    if (list[i]["id"] === id) {
-                        return list[i]["bio"];
-                    }
-                }
+
+            <h3>Resolução</h3>
+            <h2>Contador de vogais</h2>
+            <form class="form" action="">
+                <input type="text" name="word" id="word" placeholder="Insira uma palavra:">
+                <button onclick="countVowels()">Executar</button>
+            </form>
+            <p id="result"></p>
+        </section>
+
+        <section>
+            <h2>Exercício 2</h2>
+            <h3>Trabalhando com Arrays e Objetos</h3>
+            <span>Dado o array:</span>
+            <article>
+                <pre>
+                    <code>
+                        let lista = [
+                        {"id" : 1, "name": "Ada Lovelace", "bio" : "Ada Lovelace, foi uma matemática e escritora inglesa
+                        reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
+                        {"id" : 2, "name": "Alan Turing", "bio" : "Alan Turing foi um matemático, cientista da computação,
+                        lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da
+                        ciência da computação teórica e da inteligência artificial"},
+                        {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e
+                        engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de
+                        fornecimento de eletricidade em corrente alternada."},
+                        {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês
+                        que desenvolveu a teoria heliocêntrica do Sistema Solar."}
+                    ];
+                    </code>
+                </pre>
+            </article>
+            <ul>
+                <li>a) Crie uma função que retorne a bio do id passado</li>
+                <li>b) Crie uma função que retorne o name do id passado</li>
+                <li>c) Crie uma função que apague um item da lista a partir de um id passado</li>
+                <li>d) Crie uma função que altere a bio ou o name a partir de um id passado</li>
+                <li>e) Demonstre todas as funções com o paradigma funcional e com o imperativo</li>
+            </ul>
+            
+            <div class="imperative">
+                <h2>Resolução - Imperativo</h2>    
+                <h3>Função que retorna bio do ID passado</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function userBio() {
+                                const element = document.getElementById("bioImperativo");
+                                const id = element.value;
+                                const result = document.getElementById("resultBioImperativo");
+                                for (let i = 0; i < list.length; i++) {
+                                    if (list[i]["id"] == id) {
+                                        result.textContent = 'Bio: '+ list[i]["bio"];
+                                        }
+                                    }
+                                } 
+                        </code>
+                    </pre>
+                    <form class="form" action="">
+                        <input type="number" id="bioImperativo" placeholder="Insira um iD:">
+                        <button onclick="userBio()">Executar</button>
+                    </form>
+                    <p id="resultBioImperativo"></p>
+                </article>
+
+                <h3>função que retorne o name do ID passado</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function userName() {
+                                const element = document.getElementById("nameImperativo");
+                                const id = element.value;
+                                const result = document.getElementById("resultNameImperativo");
+                                    for (let i = 0; i < list.length; i++) {
+                                    if (list[i]["id"] == id) {
+                                        result.textContent = 'Name: ' + list[i]["name"];
+                                        }
+                                    }
+                                }
+                        </code>
+                    </pre>
+                    <form class="form" action="">
+                        <input type="number" id="nameImperativo" placeholder="Insira um ID:">
+                        <button onclick="userName()">Executar</button>
+                    </form>
+                    <p id="resultNameImperativo"></p>
+                </article>
+
+                <h3>função que apague um item da lista a partir de um ID passado</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function deleteUser() {
+                                const element = document.getElementById("apagarItemImperativo");
+                                const id = element.value;
+                                const result = document.getElementById("itemApagadoImperativo");
+                                let missingItem = true
+                                for (let i = 0; i < list.length; i++) {
+                                    if (list[i]["id"] == id) {
+                                        result.textContent = 'O item '+list[i]["id"]+ ' foi deletado com sucesso!'
+                                        list.splice(i, 1); 
+                                        missingItem = false
+                                    }
+                                }
+                                if (missingItem) {
+                                    result.textContent = 'Item não encontrado!';
+                                }
+                    
+                            }
+                        </code>
+                    </pre>
+                    <form class="form" action="">
+                        <input type="number" id="apagarItemImperativo" placeholder="Insira um ID:">
+                        <button onclick="deleteUser()">Executar</button>
+                    </form>
+                    <p id="itemApagadoImperativo"></p>
+                </article>
+
+                <h3>função que altere a bio ou o name a partir de um id passado - imperativo</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function changeUser() {
+                                const id = document.getElementById("AlterarCamposIdImperativo").value;
+                                const newName = document.getElementById("AlterarCamposNomeImperativo").value;
+                                const newBio = document.getElementById("AlterarCamposBioImperativo").value;
+                                const result = document.getElementById("resultadoAlterarCamposImperativo");
+                                let userFound = false
+                    
+                                for (let i = 0; i < list.length; i++) {
+                                if (list[i]["id"] == id) {
+                                    userFound = true
+                                    if (newName) 
+                                        list[i]["name"] = newName;
+                                    if (newBio) 
+                                        list[i]["bio"] = newBio;
+                                    }
+                                }
+                                if(userFound) {
+                                    result.textContent = 'Usuário atualizado com sucesso!';
+                                } else {
+                                    result.textContent = 'Usuário não encontrado!';
+                                }
+                            }
+                        </code>
+                    </pre>
+                    <form action="">
+                        <input type="number" id="AlterarCamposIdImperativo" placeholder="Insira um iD:">
+                        <input type="text" id="AlterarCamposNomeImperativo" placeholder="Insira o novo nome:">
+                        <input type="text" id="AlterarCamposBioImperativo" placeholder="Insira a nova bio:">
+                        <button onclick="changeUser()">Executar</button>
+                    </form>
+                    <p id="resultadoAlterarCamposImperativo"></p>
+                </article>
+            </div>
+
+            <div class="functional">
+                <h2>Resolução - Funcional</h2>
+                <h3>função que retorne a bio do ID passado</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function userBio2() {
+                                const element = document.getElementById("bioFuncional")
+                                const id = element.value
+                                const result = document.getElementById("resultBioFuncional")
+                                const foundItem = list.find(item => item["id"] == id);
+                                result.textContent = foundItem ? foundItem["bio"] : null;
+                            }
+                        </code>
+                    </pre>
+                    <form action="">
+                        <input type="number" id="bioFuncional" placeholder="Insira um iD:">
+                        <button onclick="userBio2()">Executar</button>
+                    </form>
+                    <p id="resultBioFuncional"></p>
+                </article>
+
+
+                <h3>função que retorne o name do id passado</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function userName2() {
+                                const element = document.getElementById("nameFuncional")
+                                const id = element.value
+                                const result = document.getElementById("resultNameFuncional")
+                                const foundItem = list.find(item => item["id"] == id);
+                                result.textContent = foundItem ? foundItem["name"] : null;
+                            }
+                        </code>
+                    </pre>
+                    <form action="">
+                        <input type="number" id="nameFuncional" placeholder="Insira um iD:">
+                        <button onclick="userName2()">Executar</button>
+                    </form>
+                    <p id="resultNameFuncional"></p>
+                </article>
+
+                <h3>função que apague um item da lista a partir de um id passado</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function deleteUser2() {
+                                const element = document.getElementById("apagarItemFuncional")
+                                const id = element.value
+                                const result = document.getElementById("itemApagadoFuncional")
+                                item = list.find(item => item["id"] == id);
+                    
+                                list = list.filter(item => item["id"] !== id)
+                    
+                                if (item) {
+                                    result.textContent = 'O item ' + item["id"] + ' foi deletado com sucesso!';
+                                } else {
+                                    result.textContent = 'Item não encontrado!';
+                                }
+                            }
+                        </code>
+                    </pre>
+                    <form action="">
+                        <input type="number" id="apagarItemFuncional" placeholder="Insira um iD:">
+                        <button onclick="deleteUser2()">Executar</button>
+                    </form>
+                    <p id="itemApagadoFuncional"></p>
+                </article>
+
+                <h3>função que altere a bio ou o name a partir de um id passado - funcional</h3>
+                <article>
+                    <pre>
+                        <code>
+                            function changeUser2() {
+                                const id = document.getElementById("AlterarCamposIdFuncional").value;
+                                const newName = document.getElementById("AlterarCamposNomeFuncional").value;
+                                const newBio = document.getElementById("AlterarCamposBioFuncional").value;
+                                const result = document.getElementById("resultadoAlterarCamposFuncional");
+                    
+                                // Verificando se o user existe na list
+                                const userExists = list.some(item => item.id == id);
+                                if (userExists) {
+                                // Atualiza o usuário
+                                list = list.map(item =>
+                                    item.id == id
+                                        ? { id: item.id, name: newName !== null && newName !== void 0 ? newName : item.name, bio: newBio !== null && newBio !== void 0 ? newBio : item.bio }
+                                        : item
+                                );
+                                result.textContent = 'Usuário atualizado com sucesso!';
+                                } else {
+                                result.textContent = 'Usuário não encontrado!';
+                                }
+                            }
+                        </code>
+                    </pre>
+                </article>
+                <form action="">
+                    <input type="number" id="AlterarCamposIdFuncional" placeholder="Insira um iD:">
+                    <input type="text" id="AlterarCamposNomeFuncional" placeholder="Insira o novo nome:">
+                    <input type="text" id="AlterarCamposBioFuncional" placeholder="Insira a nova bio:">
+                    <button onclick="changeUser2()">Executar</button>
+                </form>
+                <p id="resultadoAlterarCamposFuncional"></p>
+            </div>
+
+        </section>
+    </body>
+   <script>
+        function countVowels(input) {
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            let formInput = false;
+            if (!input) {
+                const element = document.getElementById('word');
+                input = element.value;
+                formInput = true;
             }
-        </div>
-
-        <h3>função que retorne a bio do id passado - functional</h3>
-        <div class="code-box">
-            function userBio2(id: number): string | undefined {
-                return list.find(item => item["id"] === id)?.["bio"];
+            let word = input.toLowerCase();
+            let result = word.split('').reduce((acc, letter) => { return vowels.includes(letter) ? acc + 1 : acc; }, 0);
+            if (formInput) {
+                const element2 = document.getElementById('result');
+                element2.textContent = `A quantidade de vogais é ${result}`;
             }
-        </div>
+            return result;
+        }
+        // previne o formulário de atualizar a página
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+            });
+            });
+        
+        // exercicio 2
+        
+        //array inicial
+        let list = [
+            { "id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
+            { "id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificial" },
+            { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
+            { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
+        ];
 
-        <h3>função que retorne o name do id passado - imperativo</h3>
-        <div class="code-box">
-            function userName (id: number): string | undefined {
-                for (let i = 0; i < list.length; i++) {
-                    if (list[i]["id"] === id) {
-                        return list[i]["name"];
-                    }
-                }
-            }            
-        </div>
-
-        <h3>função que retorne o name do id passado - funcional</h3>
-        <div class="code-box">
-            function userName2 (id: number): string | undefined {
-                return list.find(item => item["id"] === id)?.["name"];
-            }
-        </div>
-
-        <h3>função que apague um item da lista a partir de um id passado - imperativo</h3>
-        <div class="code-box">
-            function deleteUser (id: number): void {
-                for (let i = 0; i < list.length; i++) {
-                    if (list[i]["id"] === id) {
-                        list.splice(i, 1);
-                    }
-                }
-            }
-        </div>
-
-        <h3>função que apague um item da lista a partir de um id passado - funcional</h3>
-        <div class="code-box">
-            function deleteUser2 (id: number): void {
-                list = list.filter(item => item["id"] !== id);
-            }            
-        </div>
-
-        <h3>função que altere a bio ou o name a partir de um id passado - imperativo</h3>
-        <div class="code-box">
-            function changeUser(id: number, newName?: string, newBio?: string): void {
-                for (let i = 0; i < list.length; i++) {
-                    if (list[i]["id"] === id) {
-                        if (newName) list[i]["name"] = newName;
-                        if (newBio) list[i]["bio"] = newBio;
-                    }
-                }
-            }
-        </div>
-
-        <h3>função que altere a bio ou o name a partir de um id passado - funcional</h3>
-        <div class="code-box">
-            function changeUser2(id: number, newName?: string, newBio?: string): void {
-                list = list.map(item => item.id === id ? { id: item.id, name: newName ?? item.name, bio: newBio ?? item.bio }: item);
-            }
-        </div>
-    </div>
-</body>
-<script>
-    function countVowels(input) {
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    let formInput = false;
-    if (!input) {
-        const element = document.getElementById('word');
-        input = element.value;
-        formInput = true;
-    }
-    let word = input.toLowerCase();
-    let result = word.split('').reduce((acc, letter) => { return vowels.includes(letter) ? acc + 1 : acc; }, 0);
-    if (formInput) {
-        const element2 = document.getElementById('result');
-        element2.textContent = `A quantidade de vogais é ${result}`;
-    }
-    return result;
-}
-    // previne o formulário de atualizar a página
-    const formElement = document.getElementById('form');
-    formElement.addEventListener('submit', function (event) {
-        event.preventDefault();
-    });
-    console.log(`A quantidade de vogais é ${countVowels('Suzane')}`);
-
-    // exercicio 2
-
-    //array inicial
-    let list = [
-        { "id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
-        { "id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificial" },
-        { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
-        { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
-    ];
-    // função que retorne a bio do id passado - imperativo
-    function userBio(id) {
+        // IMPERATIVO
+        // função que retorne a bio do id passado - imperativo
+        function userBio() {
+        const element = document.getElementById("bioImperativo");
+        const id = element.value;
+        const result = document.getElementById("resultBioImperativo");
         for (let i = 0; i < list.length; i++) {
-            if (list[i]["id"] === id) {
-                return list[i]["bio"];
+            if (list[i]["id"] == id) {
+                result.textContent = 'Bio: '+ list[i]["bio"];
+                }
+            }
+        } 
+        // função que retorne o name do id passado
+        function userName() {
+        const element = document.getElementById("nameImperativo");
+        const id = element.value;
+        const result = document.getElementById("resultNameImperativo");
+            for (let i = 0; i < list.length; i++) {
+            if (list[i]["id"] == id) {
+                result.textContent = 'Name: ' + list[i]["name"];
+                }
             }
         }
-    }
-    // função que retorne a bio do id passado - functional   
-    function userBio2(id) {
-        var _a;
-        return (_a = list.find(item => item["id"] === id)) === null || _a === void 0 ? void 0 : _a["bio"];
-    }
-    // função que retorne o name do id passado - imperativo
-    function userName(id) {
-        for (let i = 0; i < list.length; i++) {
-            if (list[i]["id"] === id) {
-                return list[i]["name"];
+        // função que apague um item da lista a partir de um id passado
+        function deleteUser() {
+            const element = document.getElementById("apagarItemImperativo");
+            const id = element.value;
+            const result = document.getElementById("itemApagadoImperativo");
+            let missingItem = true
+            for (let i = 0; i < list.length; i++) {
+                if (list[i]["id"] == id) {
+                    result.textContent = 'O item '+list[i]["id"]+ ' foi deletado com sucesso!'
+                    list.splice(i, 1); 
+                    missingItem = false
+                }
             }
-        }
-    }
-    // função que retorne o name do id passado - funcional
-    function userName2(id) {
-        var _a;
-        return (_a = list.find(item => item["id"] === id)) === null || _a === void 0 ? void 0 : _a["name"];
-    }
-    // função que apague um item da lista a partir de um id passado - imperativo
-    function deleteUser(id) {
-        for (let i = 0; i < list.length; i++) {
-            if (list[i]["id"] === id) {
-                list.splice(i, 1);
+            if (missingItem) {
+                result.textContent = 'Item não encontrado!';
             }
+
         }
-    }
-    // função que apague um item da list a partir de um id passado - funcional
-    function deleteUser2(id) {
-        list = list.filter(item => item["id"] !== id);
-    }
-    // função que altere a bio ou o name a partir de um id passado - imperativo
-    function changeUser(id, newName, newBio) {
-        for (let i = 0; i < list.length; i++) {
-            if (list[i]["id"] === id) {
-                if (newName)
+        // função que altere a bio ou o name a partir de um id passado
+        function changeUser() {
+            const id = document.getElementById("AlterarCamposIdImperativo").value;
+            const newName = document.getElementById("AlterarCamposNomeImperativo").value;
+            const newBio = document.getElementById("AlterarCamposBioImperativo").value;
+            const result = document.getElementById("resultadoAlterarCamposImperativo");
+            let userFound = false
+
+            for (let i = 0; i < list.length; i++) {
+            if (list[i]["id"] == id) {
+                userFound = true
+                if (newName) 
                     list[i]["name"] = newName;
-                if (newBio)
+                if (newBio) 
                     list[i]["bio"] = newBio;
+                }
+            }
+            if(userFound) {
+                result.textContent = 'Usuário atualizado com sucesso!';
+            } else {
+                result.textContent = 'Usuário não encontrado!';
             }
         }
-    }
-    // função que altere a bio ou o name a partir de um id passado - funcional
-    function changeUser2(id, newName, newBio) {
-        list = list.map(item => item.id === id ? { id: item.id, name: newName !== null && newName !== void 0 ? newName : item.name, bio: newBio !== null && newBio !== void 0 ? newBio : item.bio } : item);
-    }
-    console.log(userBio(1));
-    console.log(userBio2(2));
-    console.log(userName(1));
-    console.log(userName2(2));
-    deleteUser(1);
-    console.log(list);
-    deleteUser2(2);
-    console.log(list);
-    changeUser(4, "Suzane Terto");
-    console.log(list);
-    changeUser2(3, "Suzane Nascimento");
-    console.log(list);
 
-</script>
+        //FUNCIONAL
+        // função que retorne a bio do id passado
+        function userBio2() {
+            const element = document.getElementById("bioFuncional")
+            const id = element.value
+            const result = document.getElementById("resultBioFuncional")
+            const foundItem = list.find(item => item["id"] == id);
+            result.textContent = foundItem ? foundItem["bio"] : null;
+        }
+        // função que retorne o name do id passado
+        function userName2() {
+            const element = document.getElementById("nameFuncional")
+            const id = element.value
+            const result = document.getElementById("resultNameFuncional")
+            const foundItem = list.find(item => item["id"] == id);
+            result.textContent = foundItem ? foundItem["name"] : null;
+        }
+        // função que apague um item da list a partir de um id passado
+        function deleteUser2() {
+            const element = document.getElementById("apagarItemFuncional")
+            const id = element.value
+            const result = document.getElementById("itemApagadoFuncional")
+            item = list.find(item => item["id"] == id);
+
+            list = list.filter(item => item["id"] !== id)
+
+            if (item) {
+                result.textContent = 'O item ' + item["id"] + ' foi deletado com sucesso!';
+            } else {
+                result.textContent = 'Item não encontrado!';
+            }
+        }
+        // função que altere a bio ou o name a partir de um id passado
+        function changeUser2() {
+            const id = document.getElementById("AlterarCamposIdFuncional").value;
+            const newName = document.getElementById("AlterarCamposNomeFuncional").value;
+            const newBio = document.getElementById("AlterarCamposBioFuncional").value;
+            const result = document.getElementById("resultadoAlterarCamposFuncional");
+
+            // verificando se o user existe na list
+            const userExists = list.some(item => item.id == id);
+            if (userExists) {
+            // atualizando o user
+            list = list.map(item =>
+                item.id == id
+                    ? { id: item.id, name: newName !== null && newName !== void 0 ? newName : item.name, bio: newBio !== null && newBio !== void 0 ? newBio : item.bio }
+                    : item
+            );
+            result.textContent = 'Usuário atualizado com sucesso!';
+            } else {
+            result.textContent = 'Usuário não encontrado!';
+            }
+        }
+   </script>
 </html>
